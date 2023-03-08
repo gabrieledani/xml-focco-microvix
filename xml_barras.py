@@ -6,7 +6,7 @@ from cleantext import clean
 new_file = 1
 letra = 1
 
-nome_arquivo = os.path.join(os.getcwd(),r'arquivos\codebar.csv')
+nome_arquivo = os.path.join(os.getcwd(),r'files\barras.csv')
 
 csv_file =  open(nome_arquivo, encoding="mbcs")
 
@@ -28,7 +28,7 @@ for row in csv_reader:
 </soapenv:Envelope>'''
 			xml_produto.write(foot)
 
-		nome_arquivo_xml = os.path.join(os.getcwd(),r'arquivos\LinxCadastraProdutosCodebar'+str(letra)+'.xml')
+		nome_arquivo_xml = os.path.join(os.getcwd(),r'files\LinxCadastraProdutosCodebar'+str(letra)+'.xml')
 		letra = letra + 1
 		xml_produto = open(nome_arquivo_xml,'w', encoding="mbcs")
 

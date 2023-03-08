@@ -3,7 +3,7 @@ from dataclasses import replace
 import os
 from cleantext import clean
 
-nome_arquivo_xml = os.path.join(os.getcwd(),r'arquivos\LinxCadastraCest.xml')
+nome_arquivo_xml = os.path.join(os.getcwd(),r'files\LinxCadastraCest.xml')
 xml_produto = open(nome_arquivo_xml,'w', encoding="mbcs")
 
 head = '''<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:linx="http://schemas.datacontract.org/2004/07/Linx.Microvix.WebApi.Importacao.Requests" xmlns:linx1="http://schemas.datacontract.org/2004/07/Linx.Microvix.WebApi.Business.Api" xmlns:linx2="http://schemas.datacontract.org/2004/07/Linx.Microvix.WebApi.Importacao">
@@ -30,7 +30,7 @@ head = '''<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envel
 					<linx2:Registros>'''
 xml_produto.write(head)
 
-nome_arquivo = os.path.join(os.getcwd(),r'arquivos\cest.csv')
+nome_arquivo = os.path.join(os.getcwd(),r'files\cest.csv')
 #print(nome_arquivo)
 
 with  open(nome_arquivo, encoding="mbcs") as csv_file:

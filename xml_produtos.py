@@ -5,7 +5,7 @@ from cleantext import clean
 new_file = 1
 letra = 1
 
-nome_arquivo = os.path.join(os.getcwd(),r'arquivos\produtos.csv')
+nome_arquivo = os.path.join(os.getcwd(),r'files\produtos.csv')
 
 csv_file =  open(nome_arquivo, encoding="mbcs")
 
@@ -28,7 +28,7 @@ for row in csv_reader:
 </soapenv:Envelope>'''
             xml_produto.write(foot)
 
-        nome_arquivo_xml = os.path.join(os.getcwd(),r'arquivos\LinxCadastraProduto'+str(letra)+'.xml')
+        nome_arquivo_xml = os.path.join(os.getcwd(),r'files\LinxCadastraProduto'+str(letra)+'.xml')
         letra = letra + 1
         xml_produto = open(nome_arquivo_xml,'w', encoding="mbcs")
         head = '''<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:linx="http://schemas.datacontract.org/2004/07/Linx.Microvix.WebApi.Importacao.Requests" xmlns:linx1="http://schemas.datacontract.org/2004/07/Linx.Microvix.WebApi.Business.Api" xmlns:linx2="http://schemas.datacontract.org/2004/07/Linx.Microvix.WebApi.Importacao">
@@ -148,13 +148,14 @@ for row in csv_reader:
                         <linx1:Name>origem_mercadoria</linx1:Name>
                         <linx1:Value>'''+origem+'''</linx1:Value>
                     </linx1:CommandParameter>'''
-    if cest:
+    """if cest:
         middle = middle+'''                        
                     <linx1:CommandParameter>
                         <linx1:Name>cest</linx1:Name>
                         <linx1:Value>'''+cest+'''</linx1:Value>
                     </linx1:CommandParameter>
                     '''
+    """
     middle = middle+ '''<linx1:CommandParameter>
                         <linx1:Name>ncm</linx1:Name>
                         <linx1:Value>'''+ncm+'''</linx1:Value>
