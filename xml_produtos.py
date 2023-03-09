@@ -148,14 +148,16 @@ for row in csv_reader:
                         <linx1:Name>origem_mercadoria</linx1:Name>
                         <linx1:Value>'''+origem+'''</linx1:Value>
                     </linx1:CommandParameter>'''
-    """if cest:
+    if cest:
+        cest = cest.zfill(7)
+        cest = cest[:2]+'.'+cest[2:5]+'.'+cest[5:]
         middle = middle+'''                        
                     <linx1:CommandParameter>
                         <linx1:Name>cest</linx1:Name>
                         <linx1:Value>'''+cest+'''</linx1:Value>
                     </linx1:CommandParameter>
                     '''
-    """
+    
     middle = middle+ '''<linx1:CommandParameter>
                         <linx1:Name>ncm</linx1:Name>
                         <linx1:Value>'''+ncm+'''</linx1:Value>
