@@ -12,12 +12,12 @@ csv_file =  open(nome_arquivo, encoding="mbcs")
 csv_reader = csv.reader(csv_file,delimiter=';')
 
 for row in csv_reader:
+    print(row)
 
     if new_file == 1:
         if letra > 1:
-            foot = '''
-                    </linx2:Registros>
-                </linx:Tabela>
+            foot = '''</linx2:Registros>
+                        </linx:Tabela>
                 <linx:UserAuth>
                     <linx2:Pass>linx_import</linx2:Pass>
                     <linx2:User>linx_import</linx2:User>
@@ -26,6 +26,7 @@ for row in csv_reader:
         </tem:Importar>
 </soapenv:Body>
 </soapenv:Envelope>'''
+            
             xml_produto.write(foot)
 
         nome_arquivo_xml = os.path.join(os.getcwd(),r'files\LinxCadastraProduto'+str(letra)+'.xml')
@@ -55,7 +56,6 @@ for row in csv_reader:
                     <linx2:Registros>'''
         xml_produto.write(head)
 
-        
     codigo_ws = clean(row[0])
     nome_produto = row[1]
     nome_produto = nome_produto.replace('&','&amp;')
@@ -70,12 +70,8 @@ for row in csv_reader:
     classificacao = row[9]
     espessura = row[10]
     origem = row[11]
-    cest = row[12]
-    cest = cest.replace('.','')
-    #if cest:
-        #cest = str(int(cest))
-    ncm = row[13].zfill(8)
-    desativado = row[14]
+    ncm = row[12].zfill(8)
+    desativado = row[13]
     
     middle = '''
             <linx:Registros>
@@ -147,18 +143,8 @@ for row in csv_reader:
                     <linx1:CommandParameter>
                         <linx1:Name>origem_mercadoria</linx1:Name>
                         <linx1:Value>'''+origem+'''</linx1:Value>
-                    </linx1:CommandParameter>'''
-    if cest:
-        cest = cest.zfill(7)
-        cest = cest[:2]+'.'+cest[2:5]+'.'+cest[5:]
-        middle = middle+'''                        
-                    <linx1:CommandParameter>
-                        <linx1:Name>cest</linx1:Name>
-                        <linx1:Value>'''+cest+'''</linx1:Value>
                     </linx1:CommandParameter>
-                    '''
-    
-    middle = middle+ '''<linx1:CommandParameter>
+                    <linx1:CommandParameter>
                         <linx1:Name>ncm</linx1:Name>
                         <linx1:Value>'''+ncm+'''</linx1:Value>
                     </linx1:CommandParameter>
